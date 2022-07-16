@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\PostController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,3 +56,26 @@ Route::get('pemesanan_2/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = 
 
 // Pemanggilan Route dengan Controller
 Route::get('latihan/{nama}/{alamat}/{umur}', [LatihanController::class, 'perkenalan']);
+
+Route::get('siswa', [LatihanController::class, 'siswa']);
+
+Route::get('dosen', [LatihanController::class, 'dosen']);
+
+Route::get('televisi', [LatihanController::class, 'televisi']);
+
+Route::get('belanja', [LatihanController::class, 'belanja']);
+
+Route::get('nilai_siswa', [LatihanController::class, 'nilai_siswa']);
+
+// Route Post
+Route::get('post', [PostController::class, 'tampil']);
+
+Route::get('post/{id}', [PostController::class, 'search']);
+
+Route::get('post/judul/{title}', [PostController::class, 'search_title']);
+
+Route::get('post/edit/{id}/{title}/{content}', [PostController::class, 'edit']);
+
+Route::get('post/tambah/{title}/{content}', [PostController::class, 'tambah']);
+
+Route::get('post/delete/{id}', [PostController::class, 'hapus']);
